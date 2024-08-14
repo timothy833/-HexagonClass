@@ -104,6 +104,7 @@ const signIn = async () => {
         signInMessage.value = '登入成功';
         token.value = res.data.token;
         document.cookie = `todo=${token.value};`; //存入名為todo cookies
+        console.log(todoToken);
     }
     catch (error){
         console.log(error);
