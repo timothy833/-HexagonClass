@@ -149,7 +149,7 @@ const checkOut = async () => {
     try{
         const res = await axios.get(`${api}/users/checkout`,{
             headers: {
-                Authorization: todoToken
+                Authorization: token.value
             }
         })
         console.log(res.data);
@@ -176,7 +176,7 @@ const signOut = async () => {
     try{
         const res = await axios.post(`${api}/users/sign_out`,{},{
             headers: {
-                Authorization: todoToken
+                Authorization: token.value
             }
         })
         console.log(res.data)
