@@ -61,7 +61,7 @@ const signUpPassword = ref('');
 const signUpNikename = ref('');
 const signUpMessage = ref('');
 
-const uid = ref('');
+// const uid = ref('');
 
 //註冊操作
 const signUp = async () => {
@@ -130,12 +130,12 @@ const todoToken = document.cookie.replace(
 
 const clearCookie = () => {
      //移除cookie  簡化寫法 document.cookie = 'todo='
-    // const path = '/-HexagonClass' //獲取當前路徑
-    // const domain = window.location.hostname //獲取當前域名
-    // console.log('Path:', path);
-    // console.log('Domain:', domain);
-    document.cookie = 'todo=';
-    // document.cookie = `todo=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=${path}; domain=${domain};`;
+    const path = '/-HexagonClass' //獲取當前路徑
+    const domain = window.location.hostname //獲取當前域名
+    console.log('Path:', path);
+    console.log('Domain:', domain);
+    // document.cookie = 'todo=';
+    document.cookie = `todo=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=${path}; domain=${domain};`;
 }
 
 
@@ -152,7 +152,7 @@ const checkOut = async () => {
             verify.value = true;
             getTodos();
         }
-        checkOutMessage.value = '驗證成功 UID:' + uid.value
+        checkOutMessage.value = '驗證成功' 
         console.log(todoToken);
     }
     catch(error){
