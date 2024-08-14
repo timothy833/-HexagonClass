@@ -125,7 +125,7 @@ const todoToken = document.cookie.replace(
   "$1",
 ); //取出Cookie裡面的值
 
-console.log(todoToken);
+
 
 //驗證部分
 const checkOut = async () => {
@@ -141,10 +141,12 @@ const checkOut = async () => {
             getTodos();
         }
         checkOutMessage.value = '驗證成功 UID:' + uid.value
+        console.log(todoToken);
     }
     catch(error){
         console.log(error);
         checkOutMessage.value= '驗證錯誤'
+        console.log(todoToken);
     }
 }
 
