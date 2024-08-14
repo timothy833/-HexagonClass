@@ -114,17 +114,28 @@ const signIn = async () => {
 //初始化啟動token
 onMounted(() => {
     if(todoToken){
+        clearCookie();
         token.value = todoToken;
         verify.value = true;
         getTodos();
     }
 })
 
+
 const todoToken = document.cookie.replace(
   /(?:(?:^|.*;\s*)todo\s*=\s*([^;]*).*$)|^.*$/,
   "$1",
 ); //取出Cookie裡面的值
 
+
+const clearCookie = () => {
+     //移除cookie  簡化寫法 document.cookie = 'todo='
+    const path = '/-HexagonClass' //獲取當前路徑
+    const domain = window.location.hostname //獲取當前域名
+    console.log('Path:', path);
+    console.log('Domain:', domain);
+    document.cookie = `todo=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=${path}; domain=${domain};`;
+}
 
 
 //驗證部分
@@ -164,12 +175,7 @@ const signOut = async () => {
         })
         console.log(res.data)
         verify.value = false;
-        //移除cookie  簡化寫法 document.cookie = 'todo='
-        const path = '/-HexagonClass' //獲取當前路徑
-        const domain = window.location.hostname //獲取當前域名
-        console.log('Path:', path);
-        console.log('Domain:', domain);
-        document.cookie = `todo=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=${path}; domain=${domain};`;
+        clearCookie();
         signOutMessage.value = res.data.message;
     }
     catch(error){
