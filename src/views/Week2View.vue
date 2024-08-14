@@ -112,21 +112,22 @@ const signIn = async () => {
     };    
 }
 
+const todoToken = document.cookie.replace(
+  /(?:(?:^|.*;\s*)todo\s*=\s*([^;]*).*$)|^.*$/,
+  "$1",
+); //取出Cookie裡面的值
+
+
 //初始化啟動token
 onMounted(() => {
+    clearCookie();
     if(todoToken){
-        clearCookie();
         token.value = todoToken;
         verify.value = true;
         getTodos();
     }
 })
 
-
-const todoToken = document.cookie.replace(
-  /(?:(?:^|.*;\s*)todo\s*=\s*([^;]*).*$)|^.*$/,
-  "$1",
-); //取出Cookie裡面的值
 
 
 const clearCookie = () => {
