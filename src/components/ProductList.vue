@@ -56,10 +56,11 @@
 </template>
 <script setup>
 import { defineProps } from 'vue';
+
+
 defineProps({
     drinks: Array,
     addToCart: Function,
-    cart: Array,
 });
 
 </script>
