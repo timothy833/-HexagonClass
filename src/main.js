@@ -1,4 +1,6 @@
 // import './assets/main.css';
+import './assets/all.scss';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import router from './router';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
